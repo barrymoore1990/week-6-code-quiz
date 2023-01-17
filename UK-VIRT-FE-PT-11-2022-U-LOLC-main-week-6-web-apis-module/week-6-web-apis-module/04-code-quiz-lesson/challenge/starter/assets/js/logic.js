@@ -6,6 +6,8 @@ let choices = document.querySelector("#choices");
 let endScreen = document.querySelector("#end-screen");
 let feedback = document.querySelector("#feedback");
 let finalScore = document.querySelector("#final-score");
+let submitButton = document.querySelector("#submit");
+let initials = document.getElementById("initials");
 
 let timer = 0;
 let currentQuestion = 0;
@@ -91,3 +93,27 @@ choices.addEventListener("click", function (event){
         newQuestion();
     }
 })
+
+let highScores = JSON.parse(localStorage.getItem("highScores"));
+if (highScores == null) {
+    highScores = [];
+}
+
+console.log(highScores);
+
+submitButton.addEventListener("click", function (event) {
+    event.preventDefault();
+    console.log("success");
+    
+    let initialsPush = initials.value;
+    let objPush = {"initials": initialsPush, "time": timer};
+    highScores.push(objPush);
+    console.log(highScores);
+
+    localStorage.setItem("highScores", JSON.stringify(highScores));
+    document.location.href = './highscores.html';
+})
+
+
+
+
