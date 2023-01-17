@@ -28,6 +28,11 @@ startQuiz.addEventListener("click", function(e) {
     if (currentQuestion >= questions.length) {
         clearInterval(intervalId);
     }
+    if (timer == 0) {
+        questionsScreen.classList.add("hide");
+        endScreen.classList.remove("hide");
+        clearInterval(intervalId);
+    }
 
 }, 1000);
 
@@ -36,8 +41,6 @@ startQuiz.addEventListener("click", function(e) {
     newQuestion();
     
 })
-
-// timer == 0 ||
 
 
 function newQuestion() {
@@ -73,7 +76,6 @@ function fback(answer) {
         }, 1000);
     
 }
-
 
 choices.addEventListener("click", function (event){
     if(event.target.matches("button")) {
