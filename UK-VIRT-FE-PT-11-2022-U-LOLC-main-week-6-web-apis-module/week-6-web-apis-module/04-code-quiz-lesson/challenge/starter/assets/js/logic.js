@@ -32,47 +32,35 @@ let questions = [
 let currentQuestion = 0;
 
 function newQuestion() {
-    
+    choices.innerHTML = "";
     document.querySelector("#question-title").textContent = questions[currentQuestion].question
 
     for (let i = 0; i < questions[currentQuestion].answers.length; i++) {
         
         let buttonCreate = document.createElement("button");
         buttonCreate.textContent = questions[currentQuestion].answers[i];
+        buttonCreate.setAttribute("data-index", i);
         choices.appendChild(buttonCreate);
     }
 }
 
 
-
-
-console.log(questions[currentQuestion].answers[0]);
-
-
-
 choices.addEventListener("click", function (event){
     if(event.target.matches("button")) {
-        console.log(event.target.getAttribute("data-index"))
+        console.log(event.target.getAttribute("data-index"));
+        currentQuestion++;
+        newQuestion();
     }
 })
-
 
 
 for (let i = 0; i < questions.length; i++) {
     console.log(questions[i].answers.length);
 
     
-    
-    
 }
 
-// for (let index = 0; index < questions[i].answers.length; index++) {
-//     let buttonCreate = document.createElement("button");
-//     buttonCreate.textContent = questions[i].answers[index];
-//     choices.appendChild(buttonCreate);
-// }
 
-// Assign data-index for each question
 
 // timer -= 20 would add on 20
 
