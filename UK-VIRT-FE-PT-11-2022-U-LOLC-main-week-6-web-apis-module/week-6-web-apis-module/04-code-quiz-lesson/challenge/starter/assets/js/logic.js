@@ -12,11 +12,11 @@ let currentQuestion = 0;
 
 // questions
 let questions = [
-    {question: "1", answers:["ex1", "ex2", "ex3", "ex4"], correctAnswer: 2},
-    {question: "2", answers:["ex1", "ex2", "ex3", "ex4"], correctAnswer: 2},
-    {question: "3", answers:["ex1", "ex2", "ex3", "ex4"], correctAnswer: 2},
-    {question: "4", answers:["ex1", "ex2", "ex3", "ex4"], correctAnswer: 2},
-    {question: "5", answers:["ex1", "ex2", "ex3", "ex4"], correctAnswer: 2}
+    {question: "Commonly used data types DO NOT include", answers:["1. Strings", "2. Booleans", "3. Alerts", "4. Numbers"], correctAnswer: 2},
+    {question: "The condition in an if / else statement is enclosed within ________", answers:["1. Quotes", "2. Curly Brackets", "3. Parenthesis", "4. Square Brackets"], correctAnswer: 1},
+    {question: "Arrays in JavaScript can be used to store", answers:["1. Numbers and strings", "2. Other arrays", "3. Booleans", "4. All of the above"], correctAnswer: 3},
+    {question: "String values must be enclosed within ______ when being assigned to variables", answers:["1. Commas", "2. Curly Brackets", "3. Quotes", "4. Parenthesis"], correctAnswer: 2},
+    {question: "A very useful tool used during development and debugging for printing content to the debugger is:", answers:["1. Javascript", "2. Terminal/bash", "3. For loops", "4. Console.log"], correctAnswer: 3}
 ]
 
 // timer for quiz
