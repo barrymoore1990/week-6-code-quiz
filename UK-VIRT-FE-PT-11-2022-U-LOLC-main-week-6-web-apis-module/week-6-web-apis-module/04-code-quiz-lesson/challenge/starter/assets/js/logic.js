@@ -16,6 +16,7 @@ startQuiz.addEventListener("click", function(e) {
 
     startScreen.classList.add("hide");
     questionsScreen.classList.remove("hide");
+    newQuestion();
 })
 
 // questions
@@ -30,15 +31,24 @@ let questions = [
 
 let currentQuestion = 0;
 
-for (let i = 0; i < array.length; i++) {
-    const element = array[i];
+function newQuestion() {
     
+    document.querySelector("#question-title").textContent = questions[currentQuestion].question
+
+    for (let i = 0; i < questions[currentQuestion].answers.length; i++) {
+        
+        let buttonCreate = document.createElement("button");
+        buttonCreate.textContent = questions[currentQuestion].answers[i];
+        choices.appendChild(buttonCreate);
+    }
 }
 
-document.querySelector("#question-title").textContent = questions[currentQuestion].question
+
+
 
 console.log(questions[currentQuestion].answers[0]);
-console.log(questions[currentQuestion].answers.length);
+
+
 
 choices.addEventListener("click", function (event){
     if(event.target.matches("button")) {
