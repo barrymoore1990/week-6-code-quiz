@@ -5,6 +5,7 @@ let questionsScreen = document.querySelector("#questions");
 let choices = document.querySelector("#choices");
 let endScreen = document.querySelector("#end-screen");
 let feedback = document.querySelector("#feedback");
+let finalScore = document.querySelector("#final-score");
 
 let timer = 0;
 let currentQuestion = 0;
@@ -27,11 +28,13 @@ startQuiz.addEventListener("click", function(e) {
     timerText.textContent = timer;
     if (currentQuestion >= questions.length) {
         clearInterval(intervalId);
+        finalScore.textContent = timer;
     }
     if (timer == 0) {
         questionsScreen.classList.add("hide");
         endScreen.classList.remove("hide");
         clearInterval(intervalId);
+        finalScore.textContent = "0";
     }
 
 }, 1000);
@@ -47,6 +50,7 @@ function newQuestion() {
     if (currentQuestion >= questions.length) {
         questionsScreen.classList.add("hide");
         endScreen.classList.remove("hide");
+        
     } else {
         choices.innerHTML = "";
         document.querySelector("#question-title").textContent = questions[currentQuestion].question;
@@ -58,10 +62,7 @@ function newQuestion() {
             buttonCreate.setAttribute("data-index", i);
             choices.appendChild(buttonCreate);
         }
-
     }
-    
-    
 }
 
 let answer = "";
@@ -90,16 +91,3 @@ choices.addEventListener("click", function (event){
         newQuestion();
     }
 })
-
-
-for (let i = 0; i < questions.length; i++) {
-    console.log(questions[i].answers.length);
-
-    
-}
-
-
-
-// On last question have some sort of game over function which stops timer
-// clearInterval(intervalId);
-// timer (would now display score which is seconds left)
